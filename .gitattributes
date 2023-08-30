@@ -1,2 +1,27 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Get user's age
+$age = Read-Host "Please enter your age"
+
+# Get user's bike type
+$bikeType = Read-Host "Do you have a mountain bike (M) or a road bike (R)?"
+
+# Define base insurance rate and additional charges
+$baseRate = 30
+$mountainBikeCharge = 10
+$under15Charge = 5
+
+# Calculate additional charges based on user input
+$additionalCharges = 0
+
+if ($bikeType -eq "M") {
+    $additionalCharges += $mountainBikeCharge
+}
+
+if ($age -lt 15) {
+    $additionalCharges += $under15Charge
+}
+
+# Calculate total insurance premium
+$totalPremium = $baseRate + $additionalCharges
+
+# Display the insurance premium
+Write-Host "Your insurance premium is: £$totalPremium"
